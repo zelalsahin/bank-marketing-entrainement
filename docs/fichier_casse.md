@@ -6,3 +6,11 @@
 
 **Prédiction** : 740 problème(s), car 740 clients ont 58 ans et chaque ligne
 avec un âge de -58 viole la règle `in_range(18, 100)`.
+
+
+**Résultat de check** : `CONTRAT NON RESPECTÉ : 740 problème(s)`, tous sur la
+colonne `age` avec le check `in_range(18, 100)` et la valeur `-58`.
+
+**Conclusion** : la prédiction était juste. Chaque ligne qui viole une règle
+compte pour un problème. Grâce à `lazy=True`, pandera vérifie tout le fichier
+et liste les 740 erreurs d'un coup, au lieu de s'arrêter à la première.
