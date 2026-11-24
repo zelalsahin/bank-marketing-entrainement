@@ -11,6 +11,7 @@
 - catégories dans la liste connue (`unknown` autorisé)
 - balance sans limite (un solde peut être négatif)
 - Détail complet : `src/mlops_projet/data/schema.py`
+- duration entre 0 et 7200 secondes (un appel ne dure pas plus de 2 h)
 
 ## Si le contrat n'est pas respecté
 Le pipeline s'arrête, on n'entraîne pas, et on prévient le producteur.

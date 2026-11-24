@@ -24,7 +24,7 @@ bank_schema = pa.DataFrameSchema(
             "jan", "feb", "mar", "apr", "may", "jun",
             "jul", "aug", "sep", "oct", "nov", "dec",
         ])),
-        "duration": pa.Column(int, pa.Check.ge(0)),
+        "duration": pa.Column(int, pa.Check.in_range(0, 7200)),  # 2 h max
         "campaign": pa.Column(int, pa.Check.ge(1)),
         "pdays": pa.Column(int, pa.Check.ge(-1)),
         "previous": pa.Column(int, pa.Check.ge(0)),
