@@ -30,3 +30,12 @@ def test_meme_calcul_entrainement_et_prediction():
     client = df.iloc[0].drop(["duration", "y"]).to_dict()
     prediction = build_features(pd.DataFrame([client]))
     pd.testing.assert_frame_equal(entrainement, prediction)
+
+def test_a_un_pret():
+    df = load_bank_data()
+    clients = df.iloc[:4].copy()
+    clients["housing"] = ["yes", "no", "yes", "no"]
+    clients["loan"] = ["no", "yes", "yes", "no"]
+    features = build_features(clients)
+    assert list(features["a_un_pret"]) == [1, 1, 1, 0]
+    

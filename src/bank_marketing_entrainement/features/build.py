@@ -24,6 +24,8 @@ def build_features(df):
         bins=[17, 29, 45, 60, 100],
         labels=["18-29", "30-45", "46-60", "61+"],
     ).astype(str)
+        # a_un_pret : 1 si prêt immobilier OU prêt perso (connu avant l'appel)
+    features["a_un_pret"] = ((df["housing"] == "yes") | (df["loan"] == "yes")).astype(int)
     return features
 
 
